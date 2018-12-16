@@ -1,0 +1,122 @@
+[colors]
+
+bar = #2b303b
+foreground = #b2b2b2
+background = #414858
+urgent = #dd0000
+
+yellow = #ebcb8b
+magenta = #b48ead
+cyan = #96b5b4
+green = #a3be8c
+red = #bf616a
+
+[bar/main]
+width = 100%
+height = 24
+;offset-x = 1%
+;offset-y = 1%
+fixed-center = true
+
+background = ${colors.bar}
+foreground = ${colors.foreground}
+
+line-size = 4
+line-color = #f00
+line-position = top
+
+border-size = 0
+border-color = #00000000
+separator = |
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Hack:size=10;0
+font-1 = Hack:size=14;0
+
+modules-left = i3
+modules-center = date
+#modules-right = 
+
+#tray-position = right
+#tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+#wm-restack = i3
+
+#override-redirect = true
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+#cursor-scroll = ns-resize
+
+
+
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+label-font = 1
+
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+;label-mode-padding = 2
+label-mode-foreground = #000
+;label-mode-background = ${colors.primary}
+
+;Vet i dagsläget inte hur jag använder variabler inom taggarna, copy-paste från ovan
+ws-icon-0 = 1;%{B#bf616a}  1  %{B-}
+ws-icon-1 = 2;%{B#ebcb8b}  2  %{B-}
+ws-icon-2 = 3;%{B#a3be8c}  3  %{B-}
+ws-icon-3 = 4;%{B#96b5b4}  4  %{B-}
+
+; focused = Active workspace on focused monitor
+label-focused = %icon%
+label-focused-underline = ${colors.background} 
+label-focused-foreground = ${colors.bar}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %icon% 
+label-unfocused-foreground = ${colors.bar}
+
+
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-underline = ${colors.urgent} 
+label-urgent-foreground = ${colors.bar}
+
+
+[module/date]
+format = <label>
+type = internal/date
+time = %H:%M:%S
+time-alt = %Y-%m-%d%
+
+
+
+label = %time%
+label-font = 1
+label-foreground = ${colors.bar}
+label-background = ${colors.cyan}
+label-underline = ${colors.background}
+label-padding = 2
+
+
+interval = 1.0 ;Seconds to sleep between updates
+
+
+
+
+; vim:ft=dosini

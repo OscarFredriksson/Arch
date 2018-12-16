@@ -162,38 +162,44 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #status bar
-bar {
+#bar {
         #output LVDS1
-        #status_command i3status
-        position top
-        workspace_buttons Yes
+        #status_command i3blocks
+        #position top
+        #workspace_buttons Yes
 
-        colors {
-                background #303030
-                statusline #ffffff
-
-                focused_workspace  #303030 #006666 #4dffff
-                active_workspace   #ffffff #005b5b
-                inactive_workspace #888888 #222222
-                urgent_workspace   #ffffff #900000
-        }
+        #colors {
+        #       background #303030
+        #       statusline #ffffff
+#
+        #        focused_workspace  #303030 #006666 #4dffff
+        #        active_workspace   #ffffff #005b5b
+        #        inactive_workspace #888888 #222222
+        #        urgent_workspace   #ffffff #900000
+        #}
 	
-}
+#}
 
+#bar {
+ #       i3bar_command ~/.config/lemonbar/bar.sh
+        #workspace_buttons Yes
+        
+#}
 
+#source ~/.config/colors
 
-smart_gaps yes
+#smart_gaps yes
 gaps inner 15
 gaps outer 10
 hide_edge_borders both  #Dölj border om det bara finns ett fönster
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 
 for_window [class="Super Mario" instance="sfml-app"]       floating enable
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #00ffff #ffffff #00b5b5 #00b5b5   #00ffff
-client.focused_inactive #009999 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #009999 #222222 #888888 #292d2e   #003333
+client.focused          #00ffff #ffffff #00b5b5 #00b5b5   #8fa1b3
+client.focused_inactive #009999 #5f676a #ffffff #484e50   #8fbcbb
+client.unfocused        #009999 #222222 #888888 #292d2e   #65737e
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
@@ -201,7 +207,12 @@ client.background       #ffffff
 
 
 
-#set $color = "#004d4d"
-#exec "xsetroot -solid $color"
-set $background = ~/Pictures/Backgrounds/minimalistic.jpg
-exec_always --no-startup-id "feh --bg-fill $background"
+#set $color = "#00ffff"
+
+
+#set $background = ~/Pictures/Backgrounds/minimalistic.jpg
+#exec_always --no-startup-id "feh --bg-fill $background"
+
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
+
+exec_always --no-startup-id xsetroot -solid "#414858"
